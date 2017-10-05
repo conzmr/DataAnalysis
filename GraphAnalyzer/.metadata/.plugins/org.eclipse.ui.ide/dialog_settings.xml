@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/conzmr/Documents/5th Semester ISC/Advanced db/DataAnalysis/GraphAnalyzer"/>
+	</list>
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item value="/Users/conzmr/Documents/5th Semester ISC/Advanced db/DataAnalysis/GraphAnalyzer" key="OUTSIDE_LOCATION"/>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+</section>

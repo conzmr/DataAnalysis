@@ -1,8 +1,12 @@
 package data;
 import java.util.*;
+
 import data.*;
 
+
 public class Graph{
+	
+
 	
 	public ArrayList<GdfNode> reset(ArrayList<GdfNode> graph){  
 		for(GdfNode node : graph) {
@@ -10,6 +14,31 @@ public class Graph{
 		}
 		return graph;
     }
+	
+	private void pageRankReducer(GdfNode currentNode) {
+		double d = 0.85; //Damping factor
+		int accumulated = 0;
+		for(GdfNode node : currentNode.getChildNodes()) {
+			accumulated += node.getPageRank()/node.getAllConnectedNodes().size();
+			float newPageRank = (float) ((1-d)+(d)*accumulated);
+			node.setPageRank(newPageRank);
+		}
+		
+	}
+
+	public void pageRank(ArrayList<GdfNode> graph, int iterations) {
+		for(int i = 0; i<iterations; i++) {
+			for(GdfNode node : graph) {
+				pageRankReducer(node);
+			}
+		}
+		System.out.println("Node name \t PageRank\t" );
+		for(GdfNode node : graph) {
+			System.out.println(node.getUsername()+ " \t" +node.getPageRank()+ " \t");
+		}
+	}
+	
+	
 	
     public void dfs(GdfNode root){       
         if(root == null) return;
@@ -100,4 +129,7 @@ public class Graph{
             }
         }
     }
+    
+    
+    
 }

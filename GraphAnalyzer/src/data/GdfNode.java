@@ -9,14 +9,20 @@ public class GdfNode {
 	private int fanCount, talkingAboutCount;
 	private ArrayList<GdfNode> childNodes,parentNodes;
 	private GdfNode tempParent;
-	private float pageRank;
-	private float pastPageRank;
+	private double pageRank;
 	public GdfNode(String s){
 		initialize(s);
 		childNodes = new ArrayList<GdfNode>();
 		parentNodes = new ArrayList<GdfNode>();
 		pageRank = 1;
-		pastPageRank = 500;
+	}
+	
+	public void setPageRank(double pagerank){
+		pageRank = pagerank;
+	}
+	
+	public double getPageRank(){
+		return pageRank;
 	}
 	public String getName(){
 		return name;
@@ -50,7 +56,6 @@ public class GdfNode {
 		visited = false;
 		tempParent = null;
 		pageRank = 1;
-		pastPageRank = 500;
 	}
 	public boolean isVisited() {
 		return visited;
@@ -99,6 +104,12 @@ public class GdfNode {
 		}
 		s += "}\n";
 		return s;
+	}
+	
+	public ArrayList<GdfNode>  getAllConnectedNodes(){
+		ArrayList<GdfNode> connected = this.getParentNodes();
+		connected.addAll(this.getChildNodes());
+		return connected;
 	}
 	
 }

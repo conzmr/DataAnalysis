@@ -21,6 +21,8 @@ public class Main {
 		System.out.println("DFS");
 		ArrayList<String> nodesInPath = new ArrayList<>();
 		graph.dfsToNode(nodeList.get(0), goToNode, nodesInPath );
+		graph.reset(nodeList);
+		graph.pageRank(nodeList, 5);
 	}
 
 }
